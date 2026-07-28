@@ -1,8 +1,10 @@
-# TodoMVC Automation
+# TodoMVC Automation 2
 
 ## About
 
 This project is a UI automation test suite for the React implementation of the TodoMVC application. It uses Selenium WebDriver with the Page Object Model (POM) to test both individual application features and end-to-end user flows.
+
+The framework has been refactored to separate responsibilities into dedicated classes and uses an abstract base class to provide shared functionality and improve maintainability.
 
 ## Application Under Test
 
@@ -10,9 +12,10 @@ This project is a UI automation test suite for the React implementation of the T
 
 ## Test Structure
 
-- Page Object: `TodoMVCReactPage`
-- Feature Tests: `TodoMVCReactTests`
-- User Flow Tests: `TodoMVCUserFlowTests`
+- Abstract Base Class: `BaseTest` – Provides shared setup and common functionality for test classes
+- Page Object: `TodoMVCReactPage` – Encapsulates interactions with the TodoMVC React application
+- Feature Tests: `AddingTodosTests`, `EditingTodosTests`, `CompletingTodosTests`, `DeletingTodosTests`, `ClearingCompletedTodosTests`, `FilteringTodosTests`, `StatusBarTests` – Validate individual application features
+- User Flow Tests: `UserFlowTests` – Validate end-to-end user journeys
 
 ## Running the Tests
 
@@ -42,7 +45,6 @@ Alternatively, tests can be run directly from IntelliJ IDEA using the JUnit test
 
 ## Future Improvements
 
-- Refactor the test classes to inherit from a shared abstract base test class
 - Expand test coverage for additional TodoMVC features and edge cases
 - Run the test suite across multiple browsers
 - Introduce a common page interface to support multiple TodoMVC implementations
